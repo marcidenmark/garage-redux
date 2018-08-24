@@ -1,4 +1,68 @@
 .app {
-  margin-top: 20px;
-  margin-bottom: 20px;
+	display: flex;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	height: 100vh;
+}
+
+.left-scene {
+	flex:  50%;
+	position: sticky;
+	display: flex;
+	flex-direction: column;
+
+	//component form-search will be the input
+	//  //form-control style comes from bootstrap
+	.form-search {
+	  	background-color: #F7EF81;
+	    padding: 60px 30px 60px 80px;
+	    border: none;
+	    font-size: 15px;
+	    font-style: italic;
+	    box-shadow: none;
+		    &:focus {
+		      box-shadow: none;
+		    }
+	}
+	// to dispaly a magnifying glass on the left of the input
+	&:before {
+		content: '\F002';
+		position: absolute;
+		top: 40px;
+		left: 30px;
+		font-family: FontAwesome;
+		font-size: 2em;
+		opacity: 0.4;
+	}
+	.selected-car {
+		text-align: center;
+		display: flex;
+		flex-grow: 1;
+		height: calc(100vh - 232px);
+		background-color:#D9E5D6;
+
+	    .car {
+		    max-width: 80%;
+		    max-height: 80%;
+		    margin: auto;
+	    }
+  	}
+}
+
+.right-scene {
+  	flex: 0 0 50%;
+  	background-color: #EDDEA4;
+  	overflow: scroll;
+// the list will be an array
+  	.car-list {
+	    column-count: 2;
+	    column-gap: 5px;
+	    padding: 5px;
+//the car will be what displays
+	    .car {
+		    width: 100%;
+		    margin: 5px;
+		    cursor: pointer;
+	    }
+  	}
 }

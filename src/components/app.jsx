@@ -4,7 +4,10 @@ import CarNew from '../containers/car_new_form';
 
 const App = (props) => {
 	return (
-		<CarsArray />
+		<div className="app">
+			<CarNew />
+			<CarsArray />
+		</div>
 	);
 };
 

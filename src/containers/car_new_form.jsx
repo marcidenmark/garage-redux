@@ -6,36 +6,53 @@ import { createCar } from '../actions';
 
 
 class CarNew extends Component {
-	onSubmit = (values) => {
-		this.props.createCar(values, (car) => {
-			this.props.history.push('/');
-			return car;
-		});
-	}
-
-	renderField(field) {
+	render () {
 		return (
-			<div className="form-group">
-				<label {field.label} </label>
-				<input
-					className="form-control"
-					type={field.type}
-					{...field.input}
-				/>
+			<div className="left-scene">
+			fdjsaæjfadsæ
 			</div>
-		);
-	}
-
-	render() {
-		return (
-			<div>
-
-			</div>
-
-		);
+			);
 	}
 }
 
-export default reduxForm({form: 'newCarForm'})(
-	connect(null, { createCar }) (CarNew)
-);
+function mapStateToProps(state) {
+	return {
+		car: state.car
+	};
+}
+
+
+// class CarNew extends Component {
+// 	onSubmit = (values) => {
+// 		this.props.createCar(values, (car) => {
+// 			this.props.history.push('/');
+// 			return car;
+// 		});
+// 	}
+
+// 	renderField(field) {
+// 		return (
+// 			<div className="form-group">
+// 				<label {field.label} </label>
+// 				<input
+// 					className="form-control"
+// 					type={field.type}
+// 					{...field.input}
+// 				/>
+// 			</div>
+// 		);
+// 	}
+
+// 	render() {
+// 		return (
+// 			<div>
+
+// 			</div>
+
+// 		);
+// 	}
+// }
+export default connect (mapStateToProps)(CarNew);
+// export default reduxForm({form: 'newCarForm'})(
+// 	connect(null, { createCar }) (CarNew)
+// );

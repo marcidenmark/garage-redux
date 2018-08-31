@@ -1,6 +1,9 @@
 import { FETCH_CARS, CAR_POSTED } from '../actions';
 
-export default function(state = null, action) {
+export default function(state, action) {
+	if (state === undefined) {
+		return [];
+	}
 	switch (action.type) {
 		case FETCH_CARS: {
 			return action.payload.cars;
@@ -10,8 +13,8 @@ export default function(state = null, action) {
 			copiedState.push(action.payload);
 			return copeidState;
 		}
-
 	default:
 		return state;
 	}
 }
+

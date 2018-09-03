@@ -5,8 +5,9 @@ import CarNew from '../containers/car_new_form';
 const App = (props) => {
 	return (
 		<div className="app">
-			<CarNew />
-			<CarsArray />
+			<CarShow channelFromParams={props.match.params.garage} />
+			<CarNew channelFromParams={props.match.params.garage} />
+			<CarsArray channelFromParams={props.match.params.garage} />
 		</div>
 	);
 };

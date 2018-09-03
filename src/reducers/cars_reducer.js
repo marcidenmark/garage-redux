@@ -1,7 +1,7 @@
-import { FETCH_CARS, CAR_POSTED } from '../actions';
+import { FETCH_CARS, CAR_POSTED, FETCH_CAR } from '../actions';
 
 export default function(state, action) {
-	if (state === undefined) {
+	if (state === null) {
 		return [];
 	}
 	switch (action.type) {

@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom';
 import { fetchCars } from '../actions';
 import CarNew from '../containers/car_new_form';
 import CarShow from '../containers/car_show';
-
-
 // import action + +
 //
 
@@ -36,11 +34,9 @@ class CarsArray extends Component {
 	render () {
 		return (
 			<div className="right-scene">
-			<h2>Test text not dynamic</h2>
+				<h2>Test text not dynamic</h2>
 			</div>
-
-
-
+			// {this.renderCars()}
 		);
 	}
 }

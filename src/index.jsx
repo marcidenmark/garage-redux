@@ -35,7 +35,7 @@ import carsReducer from './reducers/cars_reducer';
 // (this prompt comes immediately)
 const garageName = prompt("What is your garage's name?") || ` garage${Math.floor(10 + (Math.random() * 90))}`;
 const initialState = {
-	garage: garageName,
+	// garage: garageName,
 	cars:[]
 };
 
@@ -54,6 +54,7 @@ ReactDOM.render(
     <Router history={history}>
     	<div className="app">
      	<Switch>
+
      		<Route path="/" exact component={CarsArray} />
 			<Route path ="/:garage/cars" component={App} />
           	<Route path="/car/new" exact component={CarNew} />

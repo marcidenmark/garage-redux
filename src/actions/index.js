@@ -22,7 +22,7 @@ export function createCar (brand, model, owner, plate) {
 	}
 }
 
-export function fetchCar() {
+export function fetchCar(id) {
 	const promise = fetch('https://wagon-garage-api.herokuapp.com/cars')
 		.then(response => response.json());
 

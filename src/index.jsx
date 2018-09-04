@@ -31,11 +31,18 @@ import carsReducer from './reducers/cars_reducer';
 // 		{ id: 4, brand: 'VW', model: 'Beetle', owner: 'George', plate: '1234-XD-75' }
 // 	],
 // };
+// (state)
+// (this prompt comes immediately)
+const garageName = prompt("What is your garage's name?") || ` garage${Math.floor(10 + (Math.random() * 90))}`;
+const initialState = {
+	garage: garageName,
+	cars:[]
+};
 
+//Reducers
 const reducers = combineReducers({
 	cars: carsReducer,
 	form: formReducer
-
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -43,7 +50,7 @@ const middlewares = composeEnhancers(applyMiddleware(logger));
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, middlewares)}>
+  <Provider store={createStore(reducers, initialState, middlewares)}>
     <Router history={history}>
     	<div className="app">
      	<Switch>
@@ -51,11 +58,7 @@ ReactDOM.render(
 			<Route path ="/:garage/cars" component={App} />
           	<Route path="/car/new" exact component={CarNew} />
 	          <Route path="/car/:id" component={CarShow} />
-
-
-{/*  	<Route path="/car/new" exact component={CarNew} />
-     	<Route path="/car/:id" component={CarShow} />
-*/}		</Switch>
+	</Switch>
 	</div>
 
     </Router>

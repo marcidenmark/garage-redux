@@ -34,7 +34,7 @@ class CarsArray extends Component {
 	render () {
 		return (
 			<div className="right-scene">
-				<h2>Test text not dynamic</h2>
+				<h2>Test text not dynamic. Coming from the cars_array.jsx file.</h2>
 			</div>
 			// {this.renderCars()}
 		);

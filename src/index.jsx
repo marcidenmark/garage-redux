@@ -22,15 +22,15 @@ import '../assets/stylesheets/application.scss';
 // state and reducers
 import carsReducer from './reducers/cars_reducer';
 
-const initialState = {
-	// garage: {marci-garage},
-	cars: [
-		{ id: 1, brand: 'Peugeot', model: '106', owner: 'John', plate: 'WOB-ED-42' },
-		{ id: 2, brand: 'Renault', model: 'Scenic', owner: 'Paul', plate: 'AAA-12-BC' },
-		{ id: 3, brand: 'Aston Martin', model: 'DB Mark III', owner: 'James', plate: '418-ED-94' },
-		{ id: 4, brand: 'VW', model: 'Beetle', owner: 'George', plate: '1234-XD-75' }
-	],
-};
+// const initialState = {
+// 	// garage: {marci-garage},
+// 	cars: [
+// 		{ id: 1, brand: 'Peugeot', model: '106', owner: 'John', plate: 'WOB-ED-42' },
+// 		{ id: 2, brand: 'Renault', model: 'Scenic', owner: 'Paul', plate: 'AAA-12-BC' },
+// 		{ id: 3, brand: 'Aston Martin', model: 'DB Mark III', owner: 'James', plate: '418-ED-94' },
+// 		{ id: 4, brand: 'VW', model: 'Beetle', owner: 'George', plate: '1234-XD-75' }
+// 	],
+// };
 
 const reducers = combineReducers({
 	cars: carsReducer,
@@ -43,7 +43,7 @@ const middlewares = composeEnhancers(applyMiddleware(logger));
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, initialState, middlewares)}>
+  <Provider store={createStore(reducers, middlewares)}>
     <Router history={history}>
     	<div className="app">
      	<Switch>

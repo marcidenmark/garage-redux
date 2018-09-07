@@ -33,7 +33,8 @@ const initialState = {
 };
 // (state)
 // (this prompt comes immediately)
-const garageName = prompt("What is your garage's name?") || ` garage${Math.floor(10 + (Math.random() * 90))}`;
+// PROMPT:
+// const garageName = prompt("What is your garage's name?") || ` garage${Math.floor(10 + (Math.random() * 90))}`;
 // const initialState = {
 // 	// garage: garageName,
 // 	cars:[]
@@ -47,6 +48,8 @@ const reducers = combineReducers({
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middlewares = composeEnhancers(applyMiddleware(logger));
+
+// remember, SWITCH is for the routes
 
 // render an instance of the component in the DOM
 ReactDOM.render(

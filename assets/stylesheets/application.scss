@@ -1,8 +1,18 @@
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:100,300|Yeseva+One');
+
+// @import url('https://fonts.googleapis.com/css?family=Black+Ops+One|Nanum+Gothic');
+
+// font-family: 'Black Ops One', cursive;
+// font-family: 'Nanum Gothic', sans-serif;
+
+
 .app {
     display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
     height: 100vh;
+    font-family: 'Nanum Gothic';
+
 }
 
 .left-scene {
@@ -19,7 +29,27 @@
     overflow: scroll;
 }
 
+.brand {
+	font-family: 'black ops one';
+	font-size: 17px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
 
+.garage {
+	font-family: 'black ops one';
+	font-size: 27px;
+	letter-spacing: 1px;
+}
+
+.owner-bold {
+ font-size:14px;
+ font-weight: 800;
+}
+
+.owner {
+	font-size: 12px;
+}
 
 //  //form-control style comes from bootstrap
 .form {

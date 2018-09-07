@@ -30,11 +30,19 @@ class CarsArray extends Component {
 	// fetchCars = () => {
 	// 	this.props.fetchCars(this.props.car);
 	// }
+		// { id: 1, brand: 'Peugeot', model: '106', owner: 'John', plate: 'WOB-ED-42' },
 
 	render () {
 		return (
 			<div className="right-scene">
 				<h2>Test text not dynamic. Coming from the cars_array.jsx file.</h2>
+				<div className="garage"> Garage Name TKTK</div>
+				<div className="brand">	Brand, TKTK</div>
+				<div className="owner"> Owner: <span className = 'owner-bold'> namenot dynamic yet</span>
+
+				</div>
+
+
 			</div>
 			// {this.renderCars()}
 		);

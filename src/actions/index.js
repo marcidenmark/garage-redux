@@ -1,12 +1,14 @@
-const BASE_URL = 'https://wagon-garage-api.herokuapp.com/cars';
+const BASE_URL = 'https://wagon-garage-api.herokuapp.com';
 
+// FIRST ATTEMPT -- problems:
+// 1. export function createCar (brand, model, owner, plate)
+// 2. const url = `${BASE_URL}/cars`;
 
-export const FETCH_CARS = 'FETCH_CARS';
-export const CAR_POSTED = 'CAR_POSTED';
-export const FETCH_CAR = 'FETCH_CAR';
-
-export function createCar (brand, model, owner, plate) {
-	const url = `${BASE_URL}/cars`;
+// SECOND ATTEMPT-- problems resolved:
+// export function createCar (garage, car, callback) {
+// const url = `${BASE_URL}/${garage}/cars`;
+export function createCar (garage, car, callback) {
+	const url = `${BASE_URL}/${garage}/cars`;
 	const promise = fetch(url, {
 		method: 'POST',
 		headers: {
@@ -17,27 +19,39 @@ export function createCar (brand, model, owner, plate) {
 	}).then(r => r.json());
 
 	return {
-		type: CAR_POSTED,
+		type: 'CAR_POSTED',
 		payload: promise
 	}
 }
 
-export function fetchCar(id) {
-	const promise = fetch('https://wagon-garage-api.herokuapp.com/cars')
-		.then(response => response.json());
+// FIRST ATTEMPT -- problems:
+// 1. const url = `${BASE_URL}/cars`;
+//
+// // SECOND ATTEMPT-- problems resolved:
+// export function createCar (garage, car, callback) {
+//
+export function fetchCars(garage) {
+	const url = `${BASE_URL}/${garage}/cars`;
+	const promise = fetch(url)
+		.then(r => r.json());
 
 	return {
-		type: FETCH_CAR,
-		payload: promise
-	}
-}
-
-export function fetchCars(id) {
-	const url = `${BASE_URL}/cars`;
-	const promise = fetch(url).then(r => r.json());
-
-	return {
-		type: FETCH_CARS,
+		type: 'FETCH_CARS',
 		payload: promise
 	};
 }
+
+//	!!!!!
+//REMEMBER TO PUT '' with the type: 'FETCH_CARS',
+//					NOT type: FETCH_CARS
+
+//not needed:
+// export function fetchCar(id) {
+// 	const promise = fetch('https://wagon-garage-api.herokuapp.com/cars')
+// 		.then(response => response.json());
+
+// 	return {
+// 		type: FETCH_CAR,
+// 		payload: promise
+// 	}
+// }

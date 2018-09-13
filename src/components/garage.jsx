@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Garage extends Component {
-	render () {
-		return (
-			<div className="left-scene">
-					<h3>	marci-garage </h3>
-			</div>
-		);
-	}
+const Garage = (props) => {
+	return (
+		<div className="left-scene">
+			<div className="garage"> {props.garage} </div>
+		</div>
 
+	);
 }
 
 export default Garage;

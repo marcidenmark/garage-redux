@@ -1,58 +1,65 @@
 import React, { Component } from 'react';
-// import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
+
+import Garage from '../components/garage'
 import { createCar } from '../actions';
 
+class CarNewForm extends Component {
+	onSubmit = (values) => {
+		this.props.createCar(this.props.garage, values, () => {
+			this.props.history.push('/');
+			});
+		}
 
-class CarNew extends Component {
-	render () {
-		return (
-			<div className="left-scene">
-			fdjsaæjfadsæ
+	render() {
+		return [
+			<Garage key="garage"  garage = {this.props.garage}>
+				<Link to="/"> Back to list </Link>
+			</Garage>,
+
+			<div key="add" className="form-container" style={{ backgroundImage: "url('/assets/images/form.jpg')"}}>
+				<div className="overlay"></div>
+
+		        <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+
+		     	<div className="form-group">
+		          	<label htmlFor="InputBrand">Brand</label>
+		          	<Field name="brand" type="text" placeholder="Aston Martin" component="input" className="form-control" />
+		          </div>
+
+		          <div className="form-group">
+		          	<label htmlFor="InputModel">Model</label>
+		          	<Field name="model" type="text" placeholder="DB Mark III" component="input" className="form-control" />
+		          </div>
+
+		          <div className="form-group">
+		           	<label htmlFor="InputOwner">Owner</label>
+		           	<Field name="owner" type="text" placeholder="James Bond" component="input" className="form-control" />
+		          </div>
+
+		          <div className="form-group">
+		          	<label htmlFor="InputPlate">Plate</label>
+		          	<Field name="plate" type="text" placeholder="DB Mark III" component="input" className="form-control" />
+		          </div>
+
+		          <button type="submit">Add car</button>
+
+		        </form>
+
 			</div>
-			);
+		];
 	}
-}
+};
 
 function mapStateToProps(state) {
 	return {
-		car: state.car
-	};
+		garage: state.garage
+	}
 }
-
-
-// class CarNew extends Component {
-// 	onSubmit = (values) => {
-// 		this.props.createCar(values, (car) => {
-// 			this.props.history.push('/');
-// 			return car;
-// 		});
-// 	}
-
-// 	renderField(field) {
-// 		return (
-// 			<div className="form-group">
-// 				<label {field.label} </label>
-// 				<input
-// 					className="form-control"
-// 					type={field.type}
-// 					{...field.input}
-// 				/>
-// 			</div>
-// 		);
-// 	}
-
-// 	render() {
-// 		return (
-// 			<div>
-
-// 			</div>
-
-// 		);
-// 	}
-// }
-export default connect (mapStateToProps)(CarNew);
-// export default reduxForm({form: 'newCarForm'})(
-// 	connect(null, { createCar }) (CarNew)
-// );
+export default reduxForm({
+	form: 'newCarForm'
+})
+	(
+		connect(mapStateToProps, { createCar }) (CarNewForm)
+	);

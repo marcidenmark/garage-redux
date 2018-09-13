@@ -1,10 +1,10 @@
-import { FETCH_CARS, CAR_POSTED, FETCH_CAR } from '../actions';
-
+// import { FETCH_CARS, CAR_POSTED, FETCH_CAR } from '../actions';
+// import not needed.
 export default function(state = [], action) {
 	switch (action.type) {
-		case FETCH_CARS:
+		case 'FETCH_CARS':
 			return action.payload;
-		case CAR_POSTED: {
+		case 'CAR_POSTED': {
 			const copiedState = state.slice(0);
 			copiedState.push(action.payload);
 			return copeidState;
@@ -14,3 +14,5 @@ export default function(state = [], action) {
 	}
 }
 
+//mistakes
+// case FETCH_CARS: .. missing ''

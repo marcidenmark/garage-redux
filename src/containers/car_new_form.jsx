@@ -52,14 +52,13 @@ class CarNewForm extends Component {
 	}
 };
 
-function mapStateToProps(state) {
-	return {
-		garage: state.garage
-	}
-}
-export default reduxForm({
-	form: 'newCarForm'
-})
-	(
-		connect(mapStateToProps, { createCar }) (CarNewForm)
+// function mapStateToProps(state) {
+// 	return {
+// 		garage: state.garage
+// 	}
+// }
+export default reduxForm({form: 'createCar'})(
+	connect(null, { createCar })(CarNewForm)
 	);
+
+

@@ -42,8 +42,6 @@ export function fetchCars(garage) {
 }
 
 //	!!!!!
-//REMEMBER TO PUT '' with the type: 'FETCH_CARS',
-//					NOT type: FETCH_CARS
 
 //not needed:
 // export function fetchCar(id) {

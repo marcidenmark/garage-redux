@@ -32,7 +32,7 @@ import carsReducer from './reducers/cars_reducer';
 // PROMPT:
 // const garageName = prompt("What is your garage's name?") || ` garage${Math.floor(10 + (Math.random() * 90))}`;
 const initialState = {
-	garage: garageName,
+	// garage: garageName,
 	cars:[]
 };
 

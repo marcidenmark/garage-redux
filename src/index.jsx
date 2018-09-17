@@ -13,6 +13,7 @@ import { reducer as formReducer } from 'redux-form';
 import CarsArray from './containers/cars_array';
 import CarNewForm from './containers/car_new_form';
 import CarShow from './containers/car_show';
+import App from './components/app';
 
 //styles
 import '../assets/stylesheets/application.scss';
@@ -38,7 +39,7 @@ const initialState = {
 
 //Reducers
 const reducers = combineReducers({
-	garage: (state = null, action) => state,
+	// garage: (state = null, action) => state,
 	cars: carsReducer,
 	form: formReducer
 });
@@ -52,14 +53,18 @@ const middlewares = composeEnhancers(applyMiddleware(logger));
 ReactDOM.render(
 	<Provider store={createStore(reducers, initialState, middlewares)}>
    	<Router history={history}>
-    	<div className="app">
+    	<div>
      	<Switch>
-     		<Route path="/" exact component={CarsArray} />
-/*          	<Route path="/car/new" exact component={CarNewForm} />
-	          <Route path="/car/:id" component={CarShow} />*/
-	</Switch>
+     		<Route path="/" exact component={App} />
+	         	<Route path="/car/new" exact component={CarNewForm} />
+	          <Route path="/car/:id" component={CarShow} />
+		</Switch>
 	</div>
     </Router>
   </Provider>,
   document.getElementById('root')
 );
+
+//	<Route path="/" component={CarsArray} />
+//	took out this root and put it into the App
+
